@@ -25,3 +25,6 @@ public class ReceiptImpl implements Receipt {
         return value;
     }
 }
+
+
+//test
