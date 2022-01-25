@@ -93,8 +93,10 @@ public class PayStationImpl implements PayStation {
 
     public static void main(String[] args) {
 //Displaying a menu that allows a customer to select the following
-        System.out.println("Deposit coin\nDisplay\nBuy Ticket\nCancel\nEmpty (Admin)\nChange Rate Strategy (Admin)");
-
+        System.out.println("Please select one of the following options");
+        System.out.println("Deposit coin\nDisplay\nBuy Ticket\nCancel\nEmpty (Admin)\nChange Rate Strategy (Admin)\n");
+        Scanner choice = new Scanner(System.in);
+        String userChoice = choice.next();
     }
 }
 //testing new branch
