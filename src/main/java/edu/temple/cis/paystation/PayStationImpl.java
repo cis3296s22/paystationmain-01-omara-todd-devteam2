@@ -93,10 +93,19 @@ public class PayStationImpl implements PayStation {
 
     public static void main(String[] args) {
 //Displaying a menu that allows a customer to select the following
+        PayStation ps = new PayStationImpl();
+
         System.out.println("Please select one of the following options");
-        System.out.println("Deposit coin\nDisplay\nBuy Ticket\nCancel\nEmpty (Admin)\nChange Rate Strategy (Admin)\n");
+        System.out.println("Deposit coin 1\nDisplay 2\nBuy Ticket 3\nCancel 4\nEmpty (Admin) 5\nChange Rate Strategy (Admin) 6\n");
         Scanner choice = new Scanner(System.in);
         String userChoice = choice.next();
+//comment: we might need to do something before to prove that someone has admin priveleges, before they can select admin
+
+        if (userChoice == "5") {
+            //maintenacne example from instructions
+            ps.empty();
+
+        }
     }
 }
 //testing new branch
