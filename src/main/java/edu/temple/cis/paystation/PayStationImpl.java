@@ -89,5 +89,12 @@ public class PayStationImpl implements PayStation {
         totalMoney = 0;
         return temp;
     }
+
+
+    public static void main(String[] args) {
+//Displaying a menu that allows a customer to select the following
+        System.out.println("Deposit coin\nDisplay\nBuy Ticket\nCancel\nEmpty (Admin)\nChange Rate Strategy (Admin)");
+
+    }
 }
 //testing new branch
