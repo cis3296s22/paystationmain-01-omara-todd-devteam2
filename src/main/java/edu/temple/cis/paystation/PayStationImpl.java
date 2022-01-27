@@ -1,36 +1,37 @@
 package edu.temple.cis.paystation;
+
 import java.util.*;
 
 /**
  * Implementation of the pay station.
- *
+ * <p>
  * Responsibilities:
- *
- * 1) Accept payment; 
- * 2) Calculate parking time based on payment; 
- * 3) Know earning, parking time bought; 
- * 4) Issue receipts; 
+ * <p>
+ * 1) Accept payment;
+ * 2) Calculate parking time based on payment;
+ * 3) Know earning, parking time bought;
+ * 4) Issue receipts;
  * 5) Handle buy and cancel events.
- *
+ * <p>
  * This source code is from the book "Flexible, Reliable Software: Using
  * Patterns and Agile Development" published 2010 by CRC Press. Author: Henrik B
  * Christensen Computer Science Department Aarhus University
- *
+ * <p>
  * This source code is provided WITHOUT ANY WARRANTY either expressed or
  * implied. You may study, use, modify, and distribute it for non-commercial
  * purposes. For any commercial use, see http://www.baerbak.com/
  */
 public class PayStationImpl implements PayStation {
-    
+
     private int insertedSoFar, timeBought, totalMoney;
     private Map<Integer, Integer> coinMap;
 
     // Constructor initializes instance variables
-    public PayStationImpl(){
+    public PayStationImpl() {
         insertedSoFar = timeBought = totalMoney = 0;
         coinMap = new HashMap<>();
     }
-    
+
     @Override
     public void addPayment(int coinValue)
             throws IllegalCoinException {
@@ -69,43 +70,85 @@ public class PayStationImpl implements PayStation {
     }
 
     @Override
-    public Map<Integer, Integer> cancel() 
-    {
+    public Map<Integer, Integer> cancel() {
         Map<Integer, Integer> tempMap = coinMap;
         coinMap = new HashMap<>();
         reset();
         return tempMap;
     }
-    
+
     private void reset() {
         timeBought = insertedSoFar = 0;
         coinMap.clear();
     }
-    
+
     @Override
-    public int empty()
-    {
+    public int empty() {
         int temp = totalMoney;
         totalMoney = 0;
         return temp;
     }
 
+    public void startInterface() throws IllegalCoinException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Pay Station Options menu:");
+        System.out.println(" 1) Deposit coin\n 2) Display\n 3) Buy Ticket " +
+                "\n 4) Cancel \n 5) Empty (Admin)\n 6) Change Rate Strategy (Admin)\n");
 
-    public static void main(String[] args) {
-//Displaying a menu that allows a customer to select the following
-        PayStation ps = new PayStationImpl();
-
-        System.out.println("Please select one of the following options");
-        System.out.println("Deposit coin 1\nDisplay 2\nBuy Ticket 3\nCancel 4\nEmpty (Admin) 5\nChange Rate Strategy (Admin) 6\n");
-        Scanner choice = new Scanner(System.in);
-        String userChoice = choice.next();
-//comment: we might need to do something before to prove that someone has admin priveleges, before they can select admin
-
-        if (userChoice == "5") {
-            //maintenacne example from instructions
-            ps.empty();
-
+        // loop {
+        System.out.print("Option select >> ");
+        int input = scanner.nextInt();
+        switch (input) {
+            case 1:
+                this.coinSelectInterface();
+                break;
+            case 2:
+                System.out.println(String.format("Time Bought: %d", this.readDisplay()));
+                break;
+            case 3:
+                this.buy();
+                break;
+            case 4:
+                this.cancel();
+                break;
+            case 5:
+                this.empty();
+                break;
+            case 6:
+                //TODO: implement strategy interface
+            default:
+                System.out.println("Please make a valid selection");
         }
+        // }loop
+        scanner.close();
     }
+
+    public void coinSelectInterface() throws IllegalCoinException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Select Coin to deposit:");
+        System.out.println(" 1) 5\u00A2\n 2) 10\u00A2\n 3) 25\u00A2\n " +
+                "0) Return to \"Pay Station options menu\"");
+
+        // loop() {
+        System.out.print("Select Coin >> ");
+        int input = scanner.nextInt();
+        switch (input) {
+            case 0:
+                break;
+            case 1:
+                this.addPayment(5);
+                break;
+            case 2:
+                this.addPayment(10);
+                break;
+            case 3:
+                this.addPayment(25);
+                break;
+            default:
+                System.out.println("Please make a valid selection");
+        }
+        // } loop
+        scanner.close();
+    }
+
 }
-//testing new branch
