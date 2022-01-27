@@ -103,7 +103,7 @@ public class PayStationImpl implements PayStation {
                 this.coinSelectInterface();
                 break;
             case 2:
-                System.out.println(String.format("Time Bought: %d", this.readDisplay()));
+                System.out.printf("Time Bought: %d\n", this.readDisplay());
                 break;
             case 3:
                 this.buy();
