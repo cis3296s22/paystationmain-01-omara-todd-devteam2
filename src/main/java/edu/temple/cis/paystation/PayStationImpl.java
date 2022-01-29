@@ -99,14 +99,15 @@ public class PayStationImpl implements PayStation {
         System.out.print("Option select >> ");
         int input = scanner.nextInt();
         switch (input) {
-            case 1:
+            case 1:     //Customer deposits a coin , maybe should be a loop since costumer can add many coins ?
                 this.coinSelectInterface();
                 break;
-            case 2:
+            case 2:     //displays time bought
                 System.out.printf("Time Bought: %d\n", this.readDisplay());
                 break;
             case 3:
-                this.buy();
+                Receipt receipt = this.buy();
+                System.out.println("Thank you for your purchase\nPlease take your receipt " + receipt.value() + "\nParking Time: " + this.readDisplay());
                 break;
             case 4:
                 this.cancel();
@@ -121,6 +122,12 @@ public class PayStationImpl implements PayStation {
         }
         // }loop
         scanner.close();
+    }
+
+    public void rateStrategiesInterface() throws IllegalCoinException {
+        //this will be the interface that lets the user choose which town/rate strategy they would like to use
+        Scanner sc = new Scanner(System.in);
+        
     }
 
     public void coinSelectInterface() throws IllegalCoinException {
@@ -150,5 +157,6 @@ public class PayStationImpl implements PayStation {
         // } loop
         scanner.close();
     }
+
 
 }
