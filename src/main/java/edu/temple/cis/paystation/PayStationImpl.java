@@ -102,7 +102,7 @@ public class PayStationImpl implements PayStation {
      * 2) Take Integer input from the user
      * 3) Run the specified PayStation method
      */
-    public void optionsUI() throws IllegalCoinException {
+    public void startOptionsUI() throws IllegalCoinException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Pay Station Options menu:");
         System.out.println(" 1) Deposit coin\n 2) Display\n 3) Buy Ticket " +
@@ -113,6 +113,8 @@ public class PayStationImpl implements PayStation {
         System.out.print("Option select >> ");
         int input = scanner.nextInt();
         switch (input) {
+            case 0:     // exit
+                break;
             case 1:     // Deposit coin(s)
                 this.coinSelectUI();
                 break;
