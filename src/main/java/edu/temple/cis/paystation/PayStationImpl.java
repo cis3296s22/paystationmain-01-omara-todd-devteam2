@@ -102,7 +102,7 @@ public class PayStationImpl implements PayStation {
      * 2) Take Integer input from the user
      * 3) Run the specified PayStation method
      */
-    public void startUI() throws IllegalCoinException {
+    public void optionsUI() throws IllegalCoinException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Pay Station Options menu:");
         System.out.println(" 1) Deposit coin\n 2) Display\n 3) Buy Ticket " +
