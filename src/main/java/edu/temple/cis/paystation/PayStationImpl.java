@@ -89,7 +89,7 @@ public class PayStationImpl implements PayStation {
         return temp;
     }
 
-    public void startInterface() throws IllegalCoinException {
+    public void startUI() throws IllegalCoinException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Pay Station Options menu:");
         System.out.println(" 1) Deposit coin\n 2) Display\n 3) Buy Ticket " +
@@ -99,8 +99,8 @@ public class PayStationImpl implements PayStation {
         System.out.print("Option select >> ");
         int input = scanner.nextInt();
         switch (input) {
-            case 1:     //Customer deposits a coin , maybe should be a loop since costumer can add many coins ?
-                this.coinSelectInterface();
+            case 1:
+                this.coinSelectUI();
                 break;
             case 2:     //displays time bought
                 System.out.printf("Time Bought: %d\n", this.readDisplay());
@@ -124,13 +124,7 @@ public class PayStationImpl implements PayStation {
         scanner.close();
     }
 
-    public void rateStrategiesInterface() throws IllegalCoinException {
-        //this will be the interface that lets the user choose which town/rate strategy they would like to use
-        Scanner sc = new Scanner(System.in);
-
-    }
-
-    public void coinSelectInterface() throws IllegalCoinException {
+    public void coinSelectUI() throws IllegalCoinException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Select Coin to deposit:");
         System.out.println(" 1) 5\u00A2\n 2) 10\u00A2\n 3) 25\u00A2\n " +
