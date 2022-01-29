@@ -89,6 +89,15 @@ public class PayStationImpl implements PayStation {
         return temp;
     }
 
+    /**
+     * Start the main UI for the PayStation via CLI.
+     * <p>
+     * Responsibilities:
+     * <p>
+     * 1) Display a prompt to the user via CLI
+     * 2) Take Integer input from the user
+     * 3) Run the specified PayStation method
+     */
     public void startUI() throws IllegalCoinException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Pay Station Options menu:");
@@ -124,6 +133,16 @@ public class PayStationImpl implements PayStation {
         scanner.close();
     }
 
+    /**
+     * A Cli interface menu to select which coin to deposit into the PayStation.
+     * <p>
+     * Responsibilities:
+     * <p>
+     * 1) Display a prompt to the user via CLI
+     * 2) Take integer input from the user
+     * 3) Call addPayment with pre-defined value 5c, 10c, 25c
+     * 4) Return to main PayStation UI when User is done selecting coins.
+     */
     public void coinSelectUI() throws IllegalCoinException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Select Coin to deposit:");
