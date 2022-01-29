@@ -105,17 +105,17 @@ public class PayStationImpl implements PayStation {
             case 2:     //displays time bought
                 System.out.printf("Time Bought: %d\n", this.readDisplay());
                 break;
-            case 3:
+            case 3:     //customer buys the ticket
                 Receipt receipt = this.buy();
                 System.out.println("Thank you for your purchase\nPlease take your receipt " + receipt.value() + "\nParking Time: " + this.readDisplay());
                 break;
-            case 4:
+            case 4:     //customer cancels
                 this.cancel();
                 break;
-            case 5:
+            case 5:     //user wants to empty
                 this.empty();
                 break;
-            case 6:
+            case 6:     //user wants to Change Rate Strategy
                 //TODO: implement strategy interface
             default:
                 System.out.println("Please make a valid selection");
@@ -127,7 +127,7 @@ public class PayStationImpl implements PayStation {
     public void rateStrategiesInterface() throws IllegalCoinException {
         //this will be the interface that lets the user choose which town/rate strategy they would like to use
         Scanner sc = new Scanner(System.in);
-        
+
     }
 
     public void coinSelectInterface() throws IllegalCoinException {
