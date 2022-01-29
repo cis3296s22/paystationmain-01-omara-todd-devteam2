@@ -21,7 +21,7 @@ import org.junit.BeforeClass;
 
 public class PayStationImplTest {
 
-    PayStation ps;
+    PayStationImpl ps;
 
     @BeforeClass
     public static void setUpClass() {
