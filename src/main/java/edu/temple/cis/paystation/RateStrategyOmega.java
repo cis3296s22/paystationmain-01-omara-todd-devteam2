@@ -12,7 +12,8 @@ package edu.temple.cis.paystation;
  */
 public class RateStrategyOmega implements RateStrategy{
     @Override
-    public void calculateTime(int amount){
+    public int calculateTime(int amount){
+        return 0;
     }
 }
 

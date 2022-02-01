@@ -6,5 +6,5 @@ interface RateStrategy {
      * Calculate the time that will be purchased based on a specified rate strategy.
      *
      */
-    void calculateTime(int amount);
+    int calculateTime(int amount);
 }
