@@ -9,6 +9,8 @@ package edu.temple.cis.paystation;
  * 2) 5c buys two minutes for the first hour
  * 3) 5c buys one and a half minutes after the first hour and before the second hour
  * 4) 5c buys one minute after the second hour
+ * 5) @args the total amount of money deposited
+ * 6) @return an integer value of the total time purchased
  * <p>
  */
 public class RateStrategyBeta implements RateStrategy {
