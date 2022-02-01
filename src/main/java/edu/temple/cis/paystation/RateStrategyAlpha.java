@@ -11,9 +11,9 @@ package edu.temple.cis.paystation;
  * 4) @return an integer value of the total time purchased
  * <p>
  */
-public class RateStrategyAlpha implements RateStrategy{
+public class RateStrategyAlpha implements RateStrategy {
     @Override
-    public double calculateTime(int amount){
+    public double calculateTime(int amount) {
         return (amount * 2.0) / 5.0;
     }
 }

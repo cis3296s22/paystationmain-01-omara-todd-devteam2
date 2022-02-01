@@ -10,9 +10,9 @@ package edu.temple.cis.paystation;
  * 3) During weekends time will be calculated using Alpha Strategy
  * <p>
  */
-public class RateStrategyGamma implements RateStrategy{
+public class RateStrategyGamma implements RateStrategy {
     @Override
-    public double calculateTime(int amount){
+    public double calculateTime(int amount) {
         return 0;
     }
 }

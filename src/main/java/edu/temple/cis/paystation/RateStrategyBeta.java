@@ -11,12 +11,13 @@ package edu.temple.cis.paystation;
  * 4) 5c buys one minute after the second hour
  * <p>
  */
-public class RateStrategyBeta implements RateStrategy{
+public class RateStrategyBeta implements RateStrategy {
     private final RateStrategy rs = new RateStrategyAlpha();
-    @Override
-    public double calculateTime(int amount){
 
-        if (amount < 150){
+    @Override
+    public double calculateTime(int amount) {
+
+        if (amount < 150) {
             return rs.calculateTime(amount);
         } else if (amount < 350) {
             return (amount - 150) * (0.3) + 60;

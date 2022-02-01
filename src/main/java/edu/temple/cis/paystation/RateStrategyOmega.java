@@ -10,9 +10,9 @@ package edu.temple.cis.paystation;
  * 3) During weekends parking will be free
  * <p>
  */
-public class RateStrategyOmega implements RateStrategy{
+public class RateStrategyOmega implements RateStrategy {
     @Override
-    public double calculateTime(int amount){
+    public double calculateTime(int amount) {
         return 0;
     }
 }

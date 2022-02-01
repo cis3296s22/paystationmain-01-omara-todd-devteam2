@@ -11,9 +11,9 @@ package edu.temple.cis.paystation;
  * 4) @return an integer total amount of time
  * <p>
  */
-public class RateStrategyDelta implements RateStrategy{
+public class RateStrategyDelta implements RateStrategy {
     @Override
-    public double calculateTime(int amount){
+    public double calculateTime(int amount) {
         return amount / 5.0;
     }
 }
