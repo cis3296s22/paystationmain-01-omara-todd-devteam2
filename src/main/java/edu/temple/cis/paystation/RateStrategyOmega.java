@@ -5,3 +5,4 @@ public class RateStrategyOmega implements RateStrategy{
     public void calculateTime(){
     }
 }
+

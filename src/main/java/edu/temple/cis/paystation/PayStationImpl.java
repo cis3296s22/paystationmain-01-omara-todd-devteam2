@@ -26,12 +26,15 @@ public class PayStationImpl implements PayStation {
     private int insertedSoFar, timeBought, totalMoney;
     private Map<Integer, Integer> coinMap;
     private RateStrategy rateStrategy;
+    private final Scanner scanner;
+    private int input;
 
     // Constructor initializes instance variables
     public PayStationImpl() {
-        insertedSoFar = timeBought = totalMoney = 0;
+        insertedSoFar = timeBought = totalMoney = input = 0;
         coinMap = new HashMap<>();
         rateStrategy = new RateStrategyBeta();
+        scanner = new Scanner(System.in);
     }
 
     @Override
@@ -103,7 +106,6 @@ public class PayStationImpl implements PayStation {
      * 3) Run the specified PayStation method
      */
     public void startOptionsUI() throws IllegalCoinException {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Pay Station Options menu:");
         System.out.println(" 1) Deposit coin\n 2) Display\n 3) Buy Ticket " +
                 "\n 4) Cancel \n 5) Empty (Admin)\n 6) Change Rate Strategy (Admin)\n");
@@ -111,7 +113,7 @@ public class PayStationImpl implements PayStation {
         // TODO( Add While loop and validate integer input may need try catch)
         // loop {
         System.out.print("Option select >> ");
-        int input = scanner.nextInt();
+        input = scanner.nextInt();
         switch (input) {
             case 0:     // exit
                 break;
@@ -151,7 +153,6 @@ public class PayStationImpl implements PayStation {
      * 4) Return to main PayStation UI when User is done selecting coins.
      */
     public void coinSelectUI() throws IllegalCoinException {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Select Coin to deposit:");
         System.out.println(" 1) 5\u00A2\n 2) 10\u00A2\n 3) 25\u00A2\n " +
                 "0) Return to \"Pay Station options menu\"");
@@ -159,7 +160,7 @@ public class PayStationImpl implements PayStation {
         // TODO( Add While loop and validate integer input may need try catch)
         // loop() {
         System.out.print("Select Coin >> ");
-        int input = scanner.nextInt();
+        input = scanner.nextInt();
         switch (input) {
             case 0:
                 break;
@@ -176,7 +177,6 @@ public class PayStationImpl implements PayStation {
                 System.out.println("Please make a valid selection");
         }
         // } loop
-        scanner.close();
     }
 
     /**
@@ -190,7 +190,6 @@ public class PayStationImpl implements PayStation {
      * 4) Return to main PayStation UI when User is done selecting coins.
      */
     public void rateStrategySelectUI() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Select a Rate Strategy:");
         System.out.println(" 1) Linear Alpha\n 2) Linear Beta\n 3) Alternating Alpha\n " +
                 "4) Alternating Beta\n 5) Progressive\n " +
@@ -199,7 +198,7 @@ public class PayStationImpl implements PayStation {
         // TODO( Add While loop and validate integer input may need try catch)
         // loop() {
         System.out.print("Select Strategy >> ");
-        int input = scanner.nextInt();
+        input = scanner.nextInt();
         switch (input) {
             case 0:
                 break;
@@ -227,7 +226,6 @@ public class PayStationImpl implements PayStation {
                 System.out.println("Please make a valid selection");
         }
         // } loop
-        scanner.close();
     }
 
 }
