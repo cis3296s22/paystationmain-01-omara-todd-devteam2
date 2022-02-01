@@ -31,7 +31,7 @@ public class PayStationImpl implements PayStation {
     public PayStationImpl() {
         insertedSoFar = timeBought = totalMoney = 0;
         coinMap = new HashMap<>();
-        rateStrategy = new RateStrategyLinearAlpha();
+        rateStrategy = new RateStrategyBeta();
     }
 
     @Override
@@ -205,23 +205,23 @@ public class PayStationImpl implements PayStation {
                 break;
             case 1:
                 //TODO(calculateTime func not implemented see class @RateStrategyLinearAlpha)
-                rateStrategy = new RateStrategyLinearAlpha();
+                rateStrategy = new RateStrategyBeta();
                 break;
             case 2:
                 //TODO(calculateTime func not implemented see class @RateStrategyLinearBeta)
-                rateStrategy = new RateStrategyLinearBeta();
+                rateStrategy = new RateStrategyGamma();
                 break;
             case 3:
                 //TODO(calculateTime func not implemented see class @RateStrategyAlternatingAlpha)
-                rateStrategy = new RateStrategyAlternatingAlpha();
+                rateStrategy = new RateStrategyAlpha();
                 break;
             case 4:
                 //TODO(calculateTime func not implemented see class @RateStrategyAlternatingBeta)
-                rateStrategy = new RateStrategyAlternatingBeta();
+                rateStrategy = new RateStrategyDelta();
                 break;
             case 5:
                 //TODO(calculateTime func not implemented see class @RateStrategyProgressive)
-                rateStrategy = new RateStrategyProgressive();
+                rateStrategy = new RateStrategyOmega();
                 break;
             default:
                 System.out.println("Please make a valid selection");

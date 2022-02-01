@@ -1,6 +1,6 @@
 package edu.temple.cis.paystation;
 
-public class RateStrategyAlternatingAlpha implements RateStrategy{
+public class RateStrategyBeta implements RateStrategy{
     @Override
     public void calculateTime(){
     }
