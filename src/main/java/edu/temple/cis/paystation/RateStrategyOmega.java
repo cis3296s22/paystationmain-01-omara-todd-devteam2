@@ -1,5 +1,7 @@
 package edu.temple.cis.paystation;
 
+import java.util.Random;
+
 /**
  * Implementation of RateStrategy for Omega town.
  * <p>
@@ -11,9 +13,16 @@ package edu.temple.cis.paystation;
  * <p>
  */
 public class RateStrategyOmega implements RateStrategy {
+    private final RateStrategy rsA = new RateStrategyAlpha();
     @Override
     public double calculateTime(int amount) {
-        return 0;
+        Random rn = new Random();
+        int dayOfTheWeekNumber = rn.nextInt(8);                 //just using random rn to determine if the day is a weekday or not
+        if (dayOfTheWeekNumber < 6) {                   //if day of the week is monday - friday i.e weekday
+            return rsA.calculateTime(amount);
+        } else {                                        //if day of the week is saturday or sunday i.e weekday
+            return amount;
+        }
     }
 }
 
