@@ -28,6 +28,8 @@ public class PayStationImpl implements PayStation {
     private RateStrategy rateStrategy;
     private final Scanner scanner;
     private int input;
+    private static final Random random = new Random();
+    private final int randomValue = random.nextInt(8);
 
     // Constructor initializes instance variables
     public PayStationImpl() {
@@ -226,6 +228,10 @@ public class PayStationImpl implements PayStation {
                 System.out.println("Please make a valid selection");
         }
         // } loop
+    }
+
+    public int getRandomValue() {
+        return randomValue;
     }
 
 }

@@ -7,5 +7,7 @@ interface RateStrategy {
      *
      * @return
      */
+
     double calculateTime(int amount);
+
 }
