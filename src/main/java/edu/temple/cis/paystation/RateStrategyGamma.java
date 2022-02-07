@@ -1,7 +1,6 @@
 package edu.temple.cis.paystation;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.util.Random;
 
 /**
  * Implementation of RateStrategy for Gamma town.
@@ -30,7 +29,6 @@ public class RateStrategyGamma implements RateStrategy {
         }
 
     }
-
 
     //function that when passed a specific date, returns the day of the week as a number
     //where monday = 1 and sunday = 7

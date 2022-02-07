@@ -1,7 +1,5 @@
 package edu.temple.cis.paystation;
 
-import java.time.DayOfWeek;
-import java.time.LocalDate;
 import java.util.*;
 
 /**
@@ -30,8 +28,6 @@ public class PayStationImpl implements PayStation {
     private RateStrategy rateStrategy;
     private final Scanner scanner;
     private int input;
-    private static final Random random = new Random();
-    private final int randomValue = random.nextInt(8);
 
     // Constructor initializes instance variables
     public PayStationImpl() {
@@ -231,14 +227,5 @@ public class PayStationImpl implements PayStation {
         }
         // } loop
     }
-
-//    public int getRandomValue() {
-//        return randomValue;
-//    }
-
-//    public static int getDayNumber(LocalDate date) {
-//        DayOfWeek day = date.getDayOfWeek();
-//        return day.getValue();
-//    }
 
 }
