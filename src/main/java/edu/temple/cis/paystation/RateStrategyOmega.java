@@ -1,5 +1,7 @@
 package edu.temple.cis.paystation;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.Random;
 
 /**
@@ -16,13 +18,22 @@ public class RateStrategyOmega implements RateStrategy {
     private final RateStrategy rsA = new RateStrategyAlpha();
     @Override
     public double calculateTime(int amount) {
-        Random rn = new Random();
-        int dayOfTheWeekNumber = rn.nextInt(8);                 //just using random rn to determine if the day is a weekday or not
+        //date = the systems current date, then dayOfTheWeek number is the systems current date turned into a number representing day of the week
+        LocalDate date = LocalDate.now();
+        int dayOfTheWeekNumber = getDayNumber(date);
         if (dayOfTheWeekNumber < 6) {                   //if day of the week is monday - friday i.e weekday
             return rsA.calculateTime(amount);
         } else {                                        //if day of the week is saturday or sunday i.e weekday
             return amount;
         }
+    }
+
+
+    //function that when passed a specific date, returns the day of the week as a number
+    //where monday = 1 and sunday = 7
+    public static int getDayNumber(LocalDate date) {
+        DayOfWeek day = date.getDayOfWeek();
+        return day.getValue();
     }
 }
 
