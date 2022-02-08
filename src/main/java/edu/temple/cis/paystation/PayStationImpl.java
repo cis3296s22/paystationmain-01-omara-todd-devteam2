@@ -163,30 +163,37 @@ public class PayStationImpl implements PayStation {
      * 4) Return to main PayStation UI when User is done selecting coins.
      */
     public void coinSelectUI() throws IllegalCoinException {
-        System.out.println("Select Coin to deposit:");
-        System.out.println(" 1) 5\u00A2\n 2) 10\u00A2\n 3) 25\u00A2\n " +
-                "0) Return to \"Pay Station options menu\"");
+        boolean flag = false;
+        while (!flag) {
+            System.out.print("\n\nSelect Coin to deposit:\n" +
+                    " 1) 5\u00A2\n 2) 10\u00A2\n 3) 25\u00A2\n" +
+                    " 0) Return to \"Pay Station options menu\"\n" +
+                    " Select Coin >> ");
 
-        // TODO( Add While loop and validate integer input may need try catch)
-        // loop() {
-        System.out.print("Select Coin >> ");
-        input = scanner.nextInt();
-        switch (input) {
-            case 0:
-                break;
-            case 1:
-                this.addPayment(5);
-                break;
-            case 2:
-                this.addPayment(10);
-                break;
-            case 3:
-                this.addPayment(25);
-                break;
-            default:
-                System.out.println("Please make a valid selection");
+            try {
+                input = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.err.println("Input must be integer!");
+                scanner.next();
+            }
+
+            switch (input) {
+                case 0:
+                    flag = true;
+                    break;
+                case 1:
+                    this.addPayment(5);
+                    break;
+                case 2:
+                    this.addPayment(10);
+                    break;
+                case 3:
+                    this.addPayment(25);
+                    break;
+                default:
+                    System.err.println("\n*Enter an integer 1 - 3*\n");
+            }
         }
-        // } loop
     }
 
     /**
