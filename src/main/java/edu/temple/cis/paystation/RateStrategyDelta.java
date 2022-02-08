@@ -14,6 +14,6 @@ package edu.temple.cis.paystation;
 public class RateStrategyDelta implements RateStrategy {
     @Override
     public int calculateTime(int amount) {
-        return amount / 5.0;
+        return amount / 5;
     }
 }

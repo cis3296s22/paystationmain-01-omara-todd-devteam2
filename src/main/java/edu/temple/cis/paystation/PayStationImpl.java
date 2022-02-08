@@ -33,7 +33,7 @@ public class PayStationImpl implements PayStation {
     public PayStationImpl() {
         insertedSoFar = timeBought = totalMoney = input = 0;
         coinMap = new HashMap<>();
-        rateStrategy = new RateStrategyBeta();
+        rateStrategy = new RateStrategyAlpha();
         scanner = new Scanner(System.in);
     }
 
@@ -57,9 +57,8 @@ public class PayStationImpl implements PayStation {
          */
         coinMap.put(coinValue, coinMap.getOrDefault(coinValue, 0) + 1);
 
-//        insertedSoFar += coinValue;
+        insertedSoFar += coinValue;
 //        timeBought = insertedSoFar / 5 * 2;
-
         timeBought = rateStrategy.calculateTime(insertedSoFar);
     }
 
@@ -210,8 +209,8 @@ public class PayStationImpl implements PayStation {
         boolean flag = false;
         while (!flag) {
             System.out.print("\nSelect a Rate Strategy:\n" +
-                    " 1) Linear Alpha\n 2) Linear Beta\n 3) Alternating Alpha\n" +
-                    " 4) Alternating Beta\n 5) Progressive\n" +
+                    " 1) Linear Alpha\n 2) Linear Delta\n 3) Alternating Gamma\n" +
+                    " 4) Alternating Omega\n 5) Progressive Beta\n" +
                     " 0) Return to \"Pay Station options menu\"\n" +
                     " Select Strategy >> ");
 
@@ -227,19 +226,19 @@ public class PayStationImpl implements PayStation {
                     flag = true;
                     break;
                 case 1:
-                    rateStrategy = new RateStrategyBeta();
-                    break;
-                case 2:
-                    rateStrategy = new RateStrategyGamma();
-                    break;
-                case 3:
                     rateStrategy = new RateStrategyAlpha();
                     break;
-                case 4:
+                case 2:
                     rateStrategy = new RateStrategyDelta();
                     break;
-                case 5:
+                case 3:
+                    rateStrategy = new RateStrategyGamma();
+                    break;
+                case 4:
                     rateStrategy = new RateStrategyOmega();
+                    break;
+                case 5:
+                    rateStrategy = new RateStrategyBeta();
                     break;
                 default:
                     System.err.println("\n*Enter an integer 1 - 5*\n");

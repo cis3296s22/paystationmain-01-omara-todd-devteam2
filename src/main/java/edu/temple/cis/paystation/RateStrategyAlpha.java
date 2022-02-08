@@ -14,6 +14,6 @@ package edu.temple.cis.paystation;
 public class RateStrategyAlpha implements RateStrategy {
     @Override
     public int calculateTime(int amount) {
-        return (amount * 2.0) / 5.0;
+        return (amount*2)/5;
     }
 }
