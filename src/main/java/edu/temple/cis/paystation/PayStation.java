@@ -21,7 +21,7 @@
 package edu.temple.cis.paystation;
 import java.util.*;
 
-public interface PayStation {
+interface PayStation {
 
     /**
      * Insert coin into the pay station and adjust state accordingly.
@@ -30,7 +30,7 @@ public interface PayStation {
      * is, a quarter is coinValue=25, etc.
      * @throws IllegalCoinException in case coinValue is not a valid coin value
      */
-    public void addPayment(int coinValue) throws IllegalCoinException;
+    void addPayment(int coinValue) throws IllegalCoinException;
 
     /**
      * Read the machine's display. The display shows a numerical description of
@@ -38,7 +38,7 @@ public interface PayStation {
      *
      * @return the number to display on the pay station display
      */
-    public int readDisplay();
+    int readDisplay();
 
     /**
      * Buy parking time. Terminate the ongoing transaction and return a parking
@@ -46,19 +46,19 @@ public interface PayStation {
      *
      * @return a valid parking receipt object.
      */
-    public Receipt buy();
+    Receipt buy();
 
-    /** Cancel the present transaction. Resets the paystation for a 
+    /** Cancel the present transaction. Resets the payStation for a
     * new transaction. 
     * @return A Map defining the coins returned to the user. 
     * The key is the coin type and the associated value is the 
     * number of these coins that are returned. 
     * The Map object is never null even if no coins are returned. 
-    * The Map will only contain only keys for coins to be returned. 
+    * The Map will contain only keys for coins to be returned.
     * The Map will be cleared after a cancel or buy. 
     */ 
 
-    public Map<Integer, Integer> cancel();
+    Map<Integer, Integer> cancel();
     
     /**
      * Reset money collected. Sets the amount of money collected by the machine
@@ -67,5 +67,5 @@ public interface PayStation {
      * @return total amount of money collected by the machine since last
      * call.
      */
-    public int empty();
+    int empty();
 }
