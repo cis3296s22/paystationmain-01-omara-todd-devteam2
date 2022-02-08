@@ -17,14 +17,12 @@ public class RateStrategyBeta implements RateStrategy {
     private final RateStrategy rs = new RateStrategyAlpha();
 
     @Override
-    public double calculateTime(int amount) {
-
+    public int calculateTime(int amount) {
         if (amount < 150) {
             return rs.calculateTime(amount);
         } else if (amount < 350) {
-            return (amount - 150) * (0.3) + 60;
-        } else {
-            return (amount - 350) / (5.0 + 120);
+            return Math.round((amount - 150) * ((float) 3 / 10) + 60);
         }
+        return Math.round(((amount - 350) / (float)5) + 120);
     }
 }

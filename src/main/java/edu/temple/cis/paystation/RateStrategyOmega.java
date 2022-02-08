@@ -2,7 +2,6 @@ package edu.temple.cis.paystation;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.util.Random;
 
 /**
  * Implementation of RateStrategy for Omega town.
@@ -19,15 +18,15 @@ public class RateStrategyOmega implements RateStrategy {
     private final RateStrategy rsA = new RateStrategyAlpha();
 
     @Override
-    public double calculateTime(int amount) {
+    public int calculateTime(int amount) {
         //date = the systems current date, then dayOfTheWeek number is the systems current date turned into a number representing day of the week
         LocalDate date = LocalDate.now();
         int dayOfTheWeekNumber = getDayNumber(date);
 
         if (dayOfTheWeekNumber < 6) {                   //if day of the week is monday - friday i.e weekday
             return rsA.calculateTime(amount);
-        } else {                                        //if day of the week is saturday or sunday i.e weekday
-            return amount;
+        } else {                                        //if day of the week is saturday or sunday i.e weekend
+            return 0;
         }
     }
 
