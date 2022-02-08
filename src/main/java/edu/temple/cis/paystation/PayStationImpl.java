@@ -207,42 +207,44 @@ public class PayStationImpl implements PayStation {
      * 4) Return to main PayStation UI when User is done selecting coins.
      */
     public void rateStrategySelectUI() {
-        System.out.println("Select a Rate Strategy:");
-        System.out.println(" 1) Linear Alpha\n 2) Linear Beta\n 3) Alternating Alpha\n " +
-                "4) Alternating Beta\n 5) Progressive\n " +
-                "0) Return to \"Pay Station options menu\"");
+        boolean flag = false;
+        while (!flag) {
+            System.out.print("\nSelect a Rate Strategy:\n" +
+                    " 1) Linear Alpha\n 2) Linear Beta\n 3) Alternating Alpha\n" +
+                    " 4) Alternating Beta\n 5) Progressive\n" +
+                    " 0) Return to \"Pay Station options menu\"\n" +
+                    " Select Strategy >> ");
 
-        // TODO( Add While loop and validate integer input may need try catch)
-        // loop() {
-        System.out.print("Select Strategy >> ");
-        input = scanner.nextInt();
-        switch (input) {
-            case 0:
-                break;
-            case 1:
-                //TODO(calculateTime func not implemented see class @RateStrategyLinearAlpha)
-                rateStrategy = new RateStrategyBeta();
-                break;
-            case 2:
-                //TODO(calculateTime func not implemented see class @RateStrategyLinearBeta)
-                rateStrategy = new RateStrategyGamma();
-                break;
-            case 3:
-                //TODO(calculateTime func not implemented see class @RateStrategyAlternatingAlpha)
-                rateStrategy = new RateStrategyAlpha();
-                break;
-            case 4:
-                //TODO(calculateTime func not implemented see class @RateStrategyAlternatingBeta)
-                rateStrategy = new RateStrategyDelta();
-                break;
-            case 5:
-                //TODO(calculateTime func not implemented see class @RateStrategyProgressive)
-                rateStrategy = new RateStrategyOmega();
-                break;
-            default:
-                System.out.println("Please make a valid selection");
+            try {
+                input = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.err.println("Input must be integer!");
+                scanner.next();
+            }
+
+            switch (input) {
+                case 0:
+                    flag = true;
+                    break;
+                case 1:
+                    rateStrategy = new RateStrategyBeta();
+                    break;
+                case 2:
+                    rateStrategy = new RateStrategyGamma();
+                    break;
+                case 3:
+                    rateStrategy = new RateStrategyAlpha();
+                    break;
+                case 4:
+                    rateStrategy = new RateStrategyDelta();
+                    break;
+                case 5:
+                    rateStrategy = new RateStrategyOmega();
+                    break;
+                default:
+                    System.err.println("\n*Enter an integer 1 - 5*\n");
+            }
         }
-        // } loop
     }
 
 }
