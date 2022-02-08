@@ -106,39 +106,49 @@ public class PayStationImpl implements PayStation {
      * 3) Run the specified PayStation method
      */
     public void startOptionsUI() throws IllegalCoinException {
-        System.out.println("Pay Station Options menu:");
-        System.out.println(" 1) Deposit coin\n 2) Display\n 3) Buy Ticket " +
-                "\n 4) Cancel \n 5) Empty (Admin)\n 6) Change Rate Strategy (Admin)\n");
+        boolean flag = false;
+        while (!flag) {
 
-        // TODO( Add While loop and validate integer input may need try catch)
-        // loop {
-        System.out.print("Option select >> ");
-        input = scanner.nextInt();
-        switch (input) {
-            case 0:     // exit
-                break;
-            case 1:     // Deposit coin(s)
-                this.coinSelectUI();
-                break;
-            case 2:     // Print time display to the cli
-                System.out.printf("Time Bought: %d\n", this.readDisplay());
-                break;
-            case 3:     // Print receipt value and time bought to cli
-                System.out.printf("Thank you for your purchase, Please take your receipt: " +
-                        "%d\nParking Time: %d", this.buy().value(), this.readDisplay());
-                break;
-            case 4:     // Cancel current Transaction
-                this.cancel();
-                break;
-            case 5:     // Empty the PayStation
-                this.empty();
-                break;
-            case 6:     // Change Rate Strategy
-                this.rateStrategySelectUI();
-            default:
-                System.out.println("Please make a valid selection");
+            System.out.print("\nPay Station Options menu:\n" +
+                    " 1) Deposit coin\n 2) Display\n 3) Buy Ticket\n" +
+                    " 4) Cancel \n 5) Empty (Admin)\n 6) Change Rate Strategy (Admin)\n" +
+                    " 9) Exit program\n" +
+                    "   Option select >> ");
+
+            try {
+                input = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.err.println("Input must be integer!");
+                scanner.next();
+            }
+
+            switch (input) {
+                case 1:     // Deposit coin(s)
+                    this.coinSelectUI();
+                    break;
+                case 2:     // Print time display to the cli
+                    System.out.printf("Time Bought: %d\n", this.readDisplay());
+                    break;
+                case 3:     // Print receipt value and time bought to cli
+                    System.out.printf("Thank you for your purchase, Please take your receipt: " +
+                            "%d\nParking Time: %d", this.buy().value(), this.readDisplay());
+                    break;
+                case 4:     // Cancel current Transaction
+                    this.cancel();
+                    break;
+                case 5:     // Empty the PayStation
+                    this.empty();
+                    break;
+                case 6:     // Change Rate Strategy
+                    this.rateStrategySelectUI();
+                    break;
+                case 9:
+                    flag = true;
+                    break;
+                default:
+                    System.err.println("\n*Enter an integer 1 - 6*\n");
+            }
         }
-        // }loop
         scanner.close();
     }
 
