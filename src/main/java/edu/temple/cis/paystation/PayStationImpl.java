@@ -60,7 +60,7 @@ public class PayStationImpl implements PayStation {
 //        insertedSoFar += coinValue;
 //        timeBought = insertedSoFar / 5 * 2;
 
-        timeBought = (int) rateStrategy.calculateTime(insertedSoFar);
+        timeBought = rateStrategy.calculateTime(insertedSoFar);
     }
 
     @Override

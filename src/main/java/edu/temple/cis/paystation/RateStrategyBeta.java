@@ -17,7 +17,7 @@ public class RateStrategyBeta implements RateStrategy {
     private final RateStrategy rs = new RateStrategyAlpha();
 
     @Override
-    public double calculateTime(int amount) {
+    public int calculateTime(int amount) {
 
         if (amount < 150) {
             return rs.calculateTime(amount);

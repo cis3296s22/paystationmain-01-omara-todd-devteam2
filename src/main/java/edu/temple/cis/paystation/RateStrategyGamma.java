@@ -16,7 +16,7 @@ public class RateStrategyGamma implements RateStrategy {
     private final RateStrategy rsA = new RateStrategyAlpha();
     private final RateStrategy rsB = new RateStrategyBeta();
     @Override
-    public double calculateTime(int amount) {
+    public int calculateTime(int amount) {
         //date = the systems current date, then dayOfTheWeek number is the systems current date turned into a number representing day of the week
         LocalDate date = LocalDate.now();
         int dayOfTheWeekNumber = getDayNumber(date);
