@@ -25,8 +25,8 @@ public class RateStrategyOmega implements RateStrategy {
 
         if (dayOfTheWeekNumber < 6) {                   //if day of the week is monday - friday i.e weekday
             return rsA.calculateTime(amount);
-        } else {                                        //if day of the week is saturday or sunday i.e weekday
-            return amount;
+        } else {                                        //if day of the week is saturday or sunday i.e weekend
+            return 0;
         }
     }
 

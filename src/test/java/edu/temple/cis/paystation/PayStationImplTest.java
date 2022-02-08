@@ -26,6 +26,8 @@ public class PayStationImplTest {
 
     PayStationImpl ps;
     RateStrategyBeta rs;
+    RateStrategyGamma rg;
+    RateStrategyOmega ro;
 
     @BeforeClass
     public static void setUpClass() {
@@ -39,6 +41,8 @@ public class PayStationImplTest {
     public void setup() {
         ps = new PayStationImpl();
         rs = new RateStrategyBeta();
+        rg = new RateStrategyGamma();
+        ro = new RateStrategyOmega();
     }
 
     @After
@@ -307,4 +311,5 @@ public class PayStationImplTest {
         assertEquals("Rate strategy should return 2 hours for 350c", 120, rs.calculateTime(350));
         assertEquals("Rate strategy should return 1 hours for 150c", 60, rs.calculateTime(150));
     }
+
 }

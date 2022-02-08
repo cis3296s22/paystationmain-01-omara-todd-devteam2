@@ -58,7 +58,6 @@ public class PayStationImpl implements PayStation {
         coinMap.put(coinValue, coinMap.getOrDefault(coinValue, 0) + 1);
 
         insertedSoFar += coinValue;
-//        timeBought = insertedSoFar / 5 * 2;
         timeBought = rateStrategy.calculateTime(insertedSoFar);
     }
 
