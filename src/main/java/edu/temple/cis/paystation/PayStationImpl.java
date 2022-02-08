@@ -57,10 +57,10 @@ public class PayStationImpl implements PayStation {
          */
         coinMap.put(coinValue, coinMap.getOrDefault(coinValue, 0) + 1);
 
-        insertedSoFar += coinValue;
-        timeBought = insertedSoFar / 5 * 2;
-        //TODO(calculate time functions need to be implemented for each RateStrategy class)
-        // timeBought = rateStrategy.calculateTime(insertedSoFar);
+//        insertedSoFar += coinValue;
+//        timeBought = insertedSoFar / 5 * 2;
+
+        timeBought = (int) rateStrategy.calculateTime(insertedSoFar);
     }
 
     @Override
